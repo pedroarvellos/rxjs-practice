@@ -7,6 +7,11 @@
     <title>RxJS Practice</title>
 
     <style>
+        .centralizeItems {
+            display: flex;
+            justify-content: center;
+        }
+
         body {
             font-family: 'Arial';
             background: #ececec;
@@ -26,7 +31,9 @@
 </head>
 
 <body>
-    <h1>Events</h1>
+    <div class="centralizeItems">
+        <h1>Events</h1>
+    </div>
     <div>Scan to store the state: <span id="event-scan-output"></span></div>
     <button id="event-scan-button">Scan Counter</button>
     <div>Allow most one click per 2 seconds: <span id="event-throttle-output"></span></div>
@@ -34,8 +41,11 @@
 
     <hr>
 
-    <h1>Observables</h1>
-    url
+    <div class="centralizeItems"><h1>Observables</h1></div>
+    <div class="centralizeItems">
+        <div id="observables-loading" style="text-transform: uppercase;"></div>
+    </div>
+    <ul id="observables-list"></ul>
 
 
     <script src="/bundle.js"></script>
