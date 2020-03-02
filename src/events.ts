@@ -17,8 +17,8 @@ import { scan, throttleTime } from 'rxjs/operators';
     subscribe receives the value of the previous observable, which is the scan's one in this case.
 */
 
-const scanButton = document.getElementById('scan-button');
-const scanOutput = document.getElementById('scan-output')
+const scanButton = document.getElementById('event-scan-button');
+const scanOutput = document.getElementById('event-scan-output')
 
 fromEvent(scanButton, 'click')
     .pipe(scan(count => count + 1, 0))
@@ -35,8 +35,8 @@ fromEvent(scanButton, 'click')
     The throttleTime function receives as parameter one number that defines the
     period in which this event will be fired.
 */
-const throttleButton = document.getElementById('throttle-button');
-const throttleOutput = document.getElementById('throttle-output')
+const throttleButton = document.getElementById('event-throttle-button');
+const throttleOutput = document.getElementById('event-throttle-output')
 
 fromEvent(throttleButton, 'click')
     .pipe(
