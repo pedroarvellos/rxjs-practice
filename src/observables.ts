@@ -40,7 +40,7 @@ const observable = new Observable(subscriber => {
 
 observable.subscribe({
   next(x: string) {
-    const node = document.createElement("li");
+    const node = document.createElement('li');
     const textNode = document.createTextNode(x);
 
     node.appendChild(textNode);
