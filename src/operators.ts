@@ -1,5 +1,5 @@
-import { of, interval, pipe } from 'rxjs';
-import { map, first } from 'rxjs/operators';
+import { of, interval } from 'rxjs';
+import { map, first, concatAll } from 'rxjs/operators';
 
 /*
     Operators are functions, and there are two kinds of
@@ -99,3 +99,29 @@ observable.subscribe(x => {
 
     numbersByInterval.appendChild(node)
 })
+
+/*
+    Even though we have already used the subscription function,
+    there are a bunch of important things about them:
+
+    - The way to get the results of an Observable, is executing its
+    subscribe property.
+    - The subscriptions can be and should be unsubscribed, so it
+    cancels the Observable executions.
+    - If you have a subscription, you can create a child subscription
+    and put it inside the first subscription, so it is possible to cancel
+    both, for example: 
+
+    const observable1 = interval(400);
+    const observable2 = interval(300);
+    
+    const subscription = observable1.subscribe(x => console.log('first: ' + x));
+    const childSubscription = observable2.subscribe(x => console.log('second: ' + x));
+    
+    subscription.add(childSubscription);
+    
+    setTimeout(() => {
+    // Unsubscribes BOTH subscription and childSubscription
+    subscription.unsubscribe();
+    }, 1000);
+*/
