@@ -1,4 +1,4 @@
-import { of, interval } from 'rxjs';
+import { of, interval, pipe } from 'rxjs';
 import { map, first } from 'rxjs/operators';
 
 /*
@@ -57,6 +57,12 @@ map(x => <any>x * <any>x)(of(1, 2, 3)).subscribe(v => {
 
     unorderedListMap.appendChild(node)
 });
+
+// Using the .pipe function things would get a bit easier
+// to understand:
+// of(1, 2, 3).pipe(map(x => <any>x * <any>x)).subscribe(v => {
+//     ...
+// });
 
 /*
     The example below is just like the example above,
