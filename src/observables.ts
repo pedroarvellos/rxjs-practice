@@ -17,6 +17,16 @@ import { Observable } from 'rxjs';
     .complete, so the consumer reacts executing the .complete.
 */
 
+/*
+  Why observables over promises?
+
+  Promises handle a single event, it can return resolve or reject. Otherwise,
+  the Observables is like a stream, it handles not just a single event, but
+  the consumer can receive several emissions from the provider, for example,
+  each time the producer fires the .next() method. Furtheremore, the Observable
+  can be "cancelable" when using the unsubscribe property.
+*/
+
 const unorderedList = document.getElementById('observables-list');
 const loading = document.getElementById('observables-loading');
 
